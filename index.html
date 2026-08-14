@@ -3,17 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Second Branch</title>
+  <title>Second Branch — 1인 개발자가 만드는 앱과 도구</title>
+  <meta name="description" content="Second Branch(세컨드브랜치)는 1인 개발자가 직접 기획·개발·출시하는 앱과 웹 도구를 만듭니다. 찰칵분리수거, 간이과세 확인 도구 등 실제 출시한 제품과 개발 기록을 소개합니다.">
+  <link rel="canonical" href="https://secondbranch.kr/">
+  <meta property="og:title" content="Second Branch — 1인 개발자가 만드는 앱과 도구">
+  <meta property="og:description" content="1인 개발자가 직접 만든 앱과 웹 도구, 그리고 그 개발 기록.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://secondbranch.kr/">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f8f7;
+      --border: #e3e6e3;
+      --text: #1b1f1b;
+      --muted: #5c635c;
+      --accent: #2f7d4f;
+      --accent-hover: #256540;
+      --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+    header.hero {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; margin: 0 0 8px; }
+    .tagline { font-size: 1.12rem; color: var(--muted); margin: 0; }
+
+    section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.3rem; font-weight: 700; margin: 0 0 6px; letter-spacing: -.01em; }
+    .section-sub { color: var(--muted); margin: 0 0 24px; font-size: .97rem; }
+    .lead { font-size: 1.05rem; color: #333; margin: 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 { margin: 0 0 4px; font-size: 1.08rem; font-weight: 700; }
+    .card .kind { font-size: .78rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
+    .card p { margin: 0 0 16px; color: var(--muted); font-size: .95rem; flex-grow: 1; }
+    .card .links { display: flex; flex-wrap: wrap; gap: 14px; font-size: .92rem; font-weight: 600; }
+
+    .blog-cta {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .blog-cta p { margin: 0 0 14px; color: var(--muted); }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95rem;
+    }
+    .btn:hover { background: var(--accent-hover); color: #fff; text-decoration: none; }
+
+    footer {
+      padding: 36px 0 56px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    footer .company { margin: 0 0 6px; }
+    footer .legal { margin: 14px 0 0; }
+
+    @media (max-width: 480px) {
+      header.hero { padding: 44px 0 32px; }
+      .brand { font-size: 1.7rem; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Second Branch</h1>
-  <p>소프트웨어 개발 및 공급</p>
-  <p>서울특별시 관악구 남부순환로 1921-1, 202-E7호</p>
-  <p>contact: plain.easy.tech@gmail.com</p>
-  <p><a href="https://blog.secondbranch.kr">개발 블로그 →</a></p>
-  <p>
-    <a href="/privacy.html">개인정보처리방침</a> ·
-    <a href="/terms.html">이용약관</a>
-  </p>
+  <header class="hero">
+    <div class="wrap">
+      <h1 class="brand">Second Branch</h1>
+      <p class="tagline">1인 개발자가 직접 기획하고 만드는 앱과 도구</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <p class="lead">
+          Second Branch(세컨드브랜치)는 한 사람이 기획부터 개발, 출시, 운영까지 도맡아
+          실제로 쓰이는 앱과 웹 도구를 만듭니다. 아래는 지금까지 만들어 세상에 내놓은 것들이며,
+          각 제품을 만들며 겪은 과정은 개발 블로그에 가감 없이 기록하고 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>만든 것들</h2>
+        <p class="section-sub">직접 출시해 실제로 동작하는 제품과 도구입니다.</p>
+        <div class="grid">
+
+          <div class="card">
+            <div class="kind">Android 앱</div>
+            <h3>찰칵분리수거</h3>
+            <p>사진 한 장으로 분리수거 방법을 알려주는 안드로이드 앱. 헷갈리는 재활용 배출을 그 자리에서 확인합니다.</p>
+            <div class="links">
+              <a href="https://play.google.com/store/apps/details?id=com.recycleapp.recycle_app">Google Play →</a>
+              <a href="https://blog.secondbranch.kr/2026/07/claude-code-flutter-google-play-1-vs.html">개발 이야기 →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="kind">웹 도구</div>
+            <h3>간이과세 될까?</h3>
+            <p>국세청 고시를 대신 뒤져, 내 업종·사업장이 간이과세 배제 대상인지 확인해 주는 무료 도구. 로그인 없이 브라우저 안에서만 동작합니다.</p>
+            <div class="links">
+              <a href="https://goodmo12.github.io/simple-vat-check/">도구 열기 →</a>
+              <a href="https://blog.secondbranch.kr/2026/08/ai-build-4.html">개발 이야기 →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="kind">개발 도구</div>
+            <h3>VoxPlug</h3>
+            <p>손 대신 목소리로 코딩하는 음성 인터페이스. 말로 지시하고 답을 소리로 듣는, 개발자를 위한 음성 코딩 도구입니다.</p>
+            <div class="links">
+              <a href="https://blog.secondbranch.kr/2026/07/1.html">개발 이야기 →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="kind">자동화 봇</div>
+            <h3>공고 알림봇</h3>
+            <p>정부지원사업·임대주택 공고를 자동으로 수집해 텔레그램으로 알려주는 알림 봇. 흩어진 공고를 놓치지 않도록 먼저 알려줍니다.</p>
+            <div class="links">
+              <a href="https://blog.secondbranch.kr/2026/07/notice-bot-1.html">개발 이야기 →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>개발 블로그</h2>
+        <p class="section-sub">제품을 만들며 마주친 실제 문제와 해결 과정을 1인칭으로 기록합니다.</p>
+        <div class="blog-cta">
+          <p>앱 개발기, AI(LLM) 활용 실전, 1인 사업자 실무(사업자 등록·세무)까지 —
+          교과서적 정답이 아니라 직접 부딪혀 얻은 경험을 나눕니다.</p>
+          <a class="btn" href="https://blog.secondbranch.kr/">개발 블로그 방문하기 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="company"><strong>Second Branch</strong> · 소프트웨어 개발 및 공급</p>
+      <p class="company">서울특별시 관악구 남부순환로 1921-1, 202-E7호</p>
+      <p class="company">문의: <a href="mailto:plain.easy.tech@gmail.com">plain.easy.tech@gmail.com</a></p>
+      <p class="legal">
+        <a href="/privacy.html">개인정보처리방침</a> ·
+        <a href="/terms.html">이용약관</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
