@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Second Branch — 1인 개발자가 만드는 앱과 도구</title>
-  <meta name="description" content="Second Branch(세컨드브랜치)는 1인 개발자가 직접 기획·개발·출시하는 앱과 웹 도구를 만듭니다. 찰칵분리수거, 간이과세 확인 도구 등 실제 출시한 제품과 개발 기록을 소개합니다.">
+  <title>Second Branch — 1인 개발자가 만드는 앱과 도구, 그리고 그 기록</title>
+  <meta name="description" content="Second Branch(세컨드브랜치)는 한 사람이 기획부터 개발·출시·운영까지 도맡아 실제로 쓰이는 앱과 웹 도구를 만들고, 그 과정을 1인칭으로 기록합니다. 찰칵분리수거, 간이과세 확인 도구, VoxPlug, 공고 알림봇 — 만든 것과 만들며 배운 것.">
   <link rel="canonical" href="https://secondbranch.kr/">
-  <meta property="og:title" content="Second Branch — 1인 개발자가 만드는 앱과 도구">
-  <meta property="og:description" content="1인 개발자가 직접 만든 앱과 웹 도구, 그리고 그 개발 기록.">
+  <meta property="og:title" content="Second Branch — 1인 개발자가 만드는 앱과 도구, 그리고 그 기록">
+  <meta property="og:description" content="1인 개발자가 직접 만든 앱과 웹 도구, 그리고 막혔던 지점까지 남긴 개발 기록.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://secondbranch.kr/">
   <style>
@@ -27,12 +27,12 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.65;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-hover); text-decoration: underline; }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
 
     header.hero {
       padding: 64px 0 40px;
@@ -41,11 +41,12 @@
     .brand { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; margin: 0 0 8px; }
     .tagline { font-size: 1.12rem; color: var(--muted); margin: 0; }
 
-    section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+    section { padding: 44px 0; border-bottom: 1px solid var(--border); }
     section:last-of-type { border-bottom: none; }
-    h2 { font-size: 1.3rem; font-weight: 700; margin: 0 0 6px; letter-spacing: -.01em; }
+    h2 { font-size: 1.32rem; font-weight: 700; margin: 0 0 6px; letter-spacing: -.01em; }
     .section-sub { color: var(--muted); margin: 0 0 24px; font-size: .97rem; }
-    .lead { font-size: 1.05rem; color: #333; margin: 0; }
+    .lead { font-size: 1.06rem; color: #2b302b; margin: 0 0 16px; }
+    .lead:last-child { margin-bottom: 0; }
 
     .grid {
       display: grid;
@@ -63,8 +64,15 @@
     }
     .card h3 { margin: 0 0 4px; font-size: 1.08rem; font-weight: 700; }
     .card .kind { font-size: .78rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
-    .card p { margin: 0 0 16px; color: var(--muted); font-size: .95rem; flex-grow: 1; }
+    .card p { margin: 0 0 16px; color: #40463f; font-size: .95rem; flex-grow: 1; }
     .card .links { display: flex; flex-wrap: wrap; gap: 14px; font-size: .92rem; font-weight: 600; }
+
+    .posts { list-style: none; margin: 0; padding: 0; }
+    .posts li { padding: 18px 0; border-top: 1px solid var(--border); }
+    .posts li:first-child { border-top: none; padding-top: 0; }
+    .posts a.title { font-size: 1.04rem; font-weight: 700; color: var(--text); }
+    .posts a.title:hover { color: var(--accent); }
+    .posts p { margin: 6px 0 0; color: var(--muted); font-size: .95rem; }
 
     .blog-cta {
       background: var(--surface);
@@ -73,7 +81,7 @@
       padding: 24px;
       box-shadow: var(--shadow);
     }
-    .blog-cta p { margin: 0 0 14px; color: var(--muted); }
+    .blog-cta p { margin: 0 0 14px; color: #40463f; }
     .btn {
       display: inline-block;
       background: var(--accent);
@@ -103,7 +111,7 @@
   <header class="hero">
     <div class="wrap">
       <h1 class="brand">Second Branch</h1>
-      <p class="tagline">1인 개발자가 직접 기획하고 만드는 앱과 도구</p>
+      <p class="tagline">1인 개발자가 직접 만드는 앱과 도구, 그리고 그 기록</p>
     </div>
   </header>
 
@@ -111,9 +119,14 @@
     <section>
       <div class="wrap">
         <p class="lead">
-          Second Branch(세컨드브랜치)는 한 사람이 기획부터 개발, 출시, 운영까지 도맡아
-          실제로 쓰이는 앱과 웹 도구를 만듭니다. 아래는 지금까지 만들어 세상에 내놓은 것들이며,
-          각 제품을 만들며 겪은 과정은 개발 블로그에 가감 없이 기록하고 있습니다.
+          Second Branch(세컨드브랜치)는 한 사람이 기획부터 개발, 출시, 운영까지 도맡는
+          1인 개발 프로젝트입니다. 정해진 자리 밖에서, 남는 시간을 쪼개
+          실제로 쓰이는 앱과 웹 도구를 하나씩 만들어 세상에 내놓고 있습니다.
+        </p>
+        <p class="lead">
+          만드는 것만큼 중요하게 여기는 게 <strong>기록</strong>입니다.
+          잘된 부분보다 막혔던 지점, 헛짚었던 판단, 다시 돌아가 고친 과정을 가감 없이 남깁니다.
+          검색하면 나오는 정답이 아니라, 직접 부딪혀야만 알게 되는 것들이 거기 있다고 믿기 때문입니다.
         </p>
       </div>
     </section>
@@ -121,13 +134,16 @@
     <section>
       <div class="wrap">
         <h2>만든 것들</h2>
-        <p class="section-sub">직접 출시해 실제로 동작하는 제품과 도구입니다.</p>
+        <p class="section-sub">직접 출시해 지금도 동작하는 제품과 도구입니다.</p>
         <div class="grid">
 
           <div class="card">
             <div class="kind">Android 앱</div>
             <h3>찰칵분리수거</h3>
-            <p>사진 한 장으로 분리수거 방법을 알려주는 안드로이드 앱. 헷갈리는 재활용 배출을 그 자리에서 확인합니다.</p>
+            <p>종량제 봉투 앞에서 “이건 어디에 버리지?” 하고 멈칫한 순간을 위해 만든 앱입니다.
+            사진 한 장을 찍으면 분리수거 방법을 그 자리에서 알려줍니다.
+            검색하지 않고 바로 확인하도록, 판단에 필요한 것만 남겼습니다.
+            계정 선택부터 심사, 첫 수익까지의 과정은 블로그에 단계별로 남겼습니다.</p>
             <div class="links">
               <a href="https://play.google.com/store/apps/details?id=com.recycleapp.recycle_app">Google Play →</a>
               <a href="https://blog.secondbranch.kr/2026/07/claude-code-flutter-google-play-1-vs.html">개발 이야기 →</a>
@@ -137,7 +153,10 @@
           <div class="card">
             <div class="kind">웹 도구</div>
             <h3>간이과세 될까?</h3>
-            <p>국세청 고시를 대신 뒤져, 내 업종·사업장이 간이과세 배제 대상인지 확인해 주는 무료 도구. 로그인 없이 브라우저 안에서만 동작합니다.</p>
+            <p>개인사업자를 내면서 “내 업종이 간이과세가 되나?”를 알아보다,
+            국세청 고시를 일일이 뒤져야 한다는 걸 알게 돼 만든 도구입니다.
+            업종과 사업장 지역을 넣으면 간이과세 배제 대상인지 확인해 줍니다.
+            로그인도, 서버 전송도 없이 브라우저 안에서만 동작합니다.</p>
             <div class="links">
               <a href="https://secondbranch.kr/simple-vat-check/">도구 열기 →</a>
               <a href="https://blog.secondbranch.kr/2026/08/ai-build-4.html">개발 이야기 →</a>
@@ -147,7 +166,10 @@
           <div class="card">
             <div class="kind">개발 도구</div>
             <h3>VoxPlug</h3>
-            <p>손 대신 목소리로 코딩하는 음성 인터페이스. 말로 지시하고 답을 소리로 듣는, 개발자를 위한 음성 코딩 도구입니다.</p>
+            <p>허리 때문에 오래 앉아 마우스를 쥐는 게 힘들어진 게 시작이었습니다.
+            손 대신 목소리로 코딩할 수 없을까 해서 만든 음성 인터페이스입니다.
+            말로 지시하고, 답을 소리로 듣습니다.
+            인식이 안 되던 진짜 원인부터 한국어 처리까지, 삽질의 전 과정을 연재로 남겼습니다.</p>
             <div class="links">
               <a href="https://blog.secondbranch.kr/2026/07/1.html">개발 이야기 →</a>
             </div>
@@ -156,7 +178,10 @@
           <div class="card">
             <div class="kind">자동화 봇</div>
             <h3>공고 알림봇</h3>
-            <p>정부지원사업·임대주택 공고를 자동으로 수집해 텔레그램으로 알려주는 알림 봇. 흩어진 공고를 놓치지 않도록 먼저 알려줍니다.</p>
+            <p>정부지원사업과 임대주택 공고를 손으로 찾아다니다 지쳐서 만든 봇입니다.
+            흩어진 공고를 자동으로 모아 텔레그램으로 먼저 알려줍니다.
+            공공 API를 직접 파고, 중복을 걸러내고, 로컬 LLM으로 결과를 거르기까지 —
+            혼자 붙들고 해결한 기록이 블로그에 있습니다.</p>
             <div class="links">
               <a href="https://blog.secondbranch.kr/2026/07/notice-bot-1.html">개발 이야기 →</a>
             </div>
@@ -168,11 +193,44 @@
 
     <section>
       <div class="wrap">
+        <h2>기록에서</h2>
+        <p class="section-sub">최근에 쓴, 대표적인 글 몇 편입니다.</p>
+        <ul class="posts">
+          <li>
+            <a class="title" href="https://blog.secondbranch.kr/2026/08/ai-build-7.html">Claude Code 플러그인, 통째로 깔지 않고 알맹이만 빼왔다</a>
+            <p>필요한 기능만 골라 내 환경으로 가져오는 법. 플러그인과 스킬이 어떻게 다른지부터 짚었습니다.</p>
+          </li>
+          <li>
+            <a class="title" href="https://blog.secondbranch.kr/2026/08/ai-build-4.html">간이과세 확인 도구, 판정의 69%를 포기했습니다</a>
+            <p>다 자동화하는 대신, 틀릴 바엔 판단을 미루기로 한 설계 이야기.</p>
+          </li>
+          <li>
+            <a class="title" href="https://blog.secondbranch.kr/2026/07/notice-bot-1.html">손으로 찾다 지쳤습니다 — 공고 알림봇 개발기</a>
+            <p>매번 여러 사이트를 돌며 공고를 확인하던 일을 봇에게 넘기기까지의 시작.</p>
+          </li>
+          <li>
+            <a class="title" href="https://blog.secondbranch.kr/2026/07/1.html">음성으로 코딩하기 — 허리 때문에 마우스를 놓았다</a>
+            <p>몸이 보내는 신호에서 시작된 음성 코딩 실험의 첫 편.</p>
+          </li>
+          <li>
+            <a class="title" href="https://blog.secondbranch.kr/2026/07/claude-code-flutter-google-play-1-vs.html">첫 앱을 올리며 계정부터 막혔습니다 — 개인 vs 사업자</a>
+            <p>구글 플레이에 앱을 처음 올리며 계정 선택에서 멈칫했던 이야기.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
         <h2>개발 블로그</h2>
         <p class="section-sub">제품을 만들며 마주친 실제 문제와 해결 과정을 1인칭으로 기록합니다.</p>
         <div class="blog-cta">
-          <p>앱 개발기, AI(LLM) 활용 실전, 1인 사업자 실무(사업자 등록·세무)까지 —
-          교과서적 정답이 아니라 직접 부딪혀 얻은 경험을 나눕니다.</p>
+          <p>블로그에는 크게 세 갈래의 글이 있습니다.
+          <strong>앱·서비스 개발기</strong>는 기획부터 구글 플레이 출시까지 실제로 겪은 과정을,
+          <strong>AI(LLM) 활용</strong>은 챗봇이 아니라 손발 달린 도구로 LLM을 실제 작업에 쓰는 법을,
+          <strong>1인 사업자 실무</strong>는 사업자 등록·사업장 주소·홈택스·첫 부가세 신고까지
+          처음 겪으며 정리한 것들을 다룹니다. 셋 다 “검색하면 나오는 정답”이 아니라
+          “직접 해보니 이렇더라”에 무게를 둡니다.</p>
           <a class="btn" href="https://blog.secondbranch.kr/">개발 블로그 방문하기 →</a>
         </div>
       </div>
