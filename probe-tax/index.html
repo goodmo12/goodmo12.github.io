@@ -78,6 +78,20 @@
 </section>
 
 <section>
+  <h2>⑦ .ics 내려받기 (알림 2개)</h2>
+  <button class="btn" id="b7" type="button">[시험] 알림 2개 확인 .ics</button>
+  <p class="what">2027-01-25 종일 일정에 알림 두 개(0시 기준 6일 15시간 전, 15시간 전)를 넣은 파일. 알림 줄에 ①1주 전 오전 9:00 ②1일 전 오전 9:00 두 줄이 보이면 성공</p>
+  <div class="chk"><label><input type="checkbox"> 됨(두 줄 다 보임)</label><label><input type="checkbox"> 한 줄만 보임</label><label><input type="checkbox"> 시각이 다름</label><label><input type="checkbox"> 안 됨</label></div>
+</section>
+
+<section>
+  <h2>⑦s .ics 정적 파일 링크 (알림 2개)</h2>
+  <a class="btn" href="probe-alarms.ics">[시험] 알림 2개 확인 .ics (정적 파일 링크)</a>
+  <p class="what">⑦과 같은 내용을 정적 파일로. 일반 링크이며 download 속성 없음. 알림 줄에 ①1주 전 오전 9:00 ②1일 전 오전 9:00 두 줄이 보이면 성공</p>
+  <div class="chk"><label><input type="checkbox"> 됨(두 줄 다 보임)</label><label><input type="checkbox"> 한 줄만 보임</label><label><input type="checkbox"> 시각이 다름</label><label><input type="checkbox"> 안 됨</label></div>
+</section>
+
+<section>
   <h2>⑤ 환경 정보</h2>
   <p class="what">아래 UA 를 길게 눌러 복사하거나 화면째 캡처하십시오.</p>
   <textarea id="ua" readonly></textarea>
@@ -90,12 +104,16 @@
     var d = new Date(), p = function (n) { return (n < 10 ? "0" : "") + n; };
     return d.getUTCFullYear() + p(d.getUTCMonth() + 1) + p(d.getUTCDate()) + "T" + p(d.getUTCHours()) + p(d.getUTCMinutes()) + p(d.getUTCSeconds()) + "Z";
   }
-  function build(uid, summary, start, end, rrule) {
+  function build(uid, summary, start, end, rrule, triggers) {
     var L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//ToolForge//probe//KO", "CALSCALE:GREGORIAN", "BEGIN:VEVENT",
       "UID:" + uid + "@toolforge-probe", "DTSTAMP:" + stamp(),
       "DTSTART;VALUE=DATE:" + start, "DTEND;VALUE=DATE:" + end];
     if (rrule) L.push("RRULE:" + rrule);
-    L.push("SUMMARY:" + summary, "BEGIN:VALARM", "TRIGGER:-P1D", "ACTION:DISPLAY", "DESCRIPTION:" + summary, "END:VALARM", "END:VEVENT", "END:VCALENDAR");
+    L.push("SUMMARY:" + summary);
+    (triggers || ["-P1D"]).forEach(function (t) {
+      L.push("BEGIN:VALARM", "TRIGGER:" + t, "ACTION:DISPLAY", "DESCRIPTION:" + summary, "END:VALARM");
+    });
+    L.push("END:VEVENT", "END:VCALENDAR");
     return L.join("\r\n") + "\r\n";
   }
   function dl(name, text) {
@@ -111,6 +129,9 @@
   };
   document.getElementById("b2").onclick = function () {
     dl("probe-withholding.ics", build("probe-2", "[시험] 원천세 신고", "20270110", "20270111", "FREQ=MONTHLY;BYMONTHDAY=10"));
+  };
+  document.getElementById("b7").onclick = function () {
+    dl("probe-alarms.ics", build("probe-7", "[시험] 알림 2개 확인", "20270125", "20270126", null, ["-P6DT15H", "-PT15H"]));
   };
   var ua = navigator.userAgent;
   document.getElementById("ua").value = ua;
