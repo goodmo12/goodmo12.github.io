@@ -91,6 +91,22 @@
   <div class="chk"><label><input type="checkbox"> 됨(두 줄 다 보임)</label><label><input type="checkbox"> 한 줄만 보임</label><label><input type="checkbox"> 시각이 다름</label><label><input type="checkbox"> 안 됨</label></div>
 </section>
 
+<p class="note">카카오톡·네이버 앱 안에서 눌러 보세요. 일반 크롬에서는 의미 없습니다.</p>
+
+<section>
+  <h2>⑧가 카카오톡 탈출</h2>
+  <a class="btn" id="l8a" href="#">카카오톡에서 외부 브라우저로 열기</a>
+  <p class="what">크롬으로 이 페이지가 다시 열리면 성공</p>
+  <div class="chk"><label><input type="checkbox"> 열림</label><label><input type="checkbox"> 반응 없음</label><label><input type="checkbox"> 오류</label><label><input type="checkbox"> 다른 앱이 열림</label></div>
+</section>
+
+<section>
+  <h2>⑧나 안드로이드 크롬 지정</h2>
+  <a class="btn" id="l8b" href="#">크롬으로 열기 (intent)</a>
+  <p class="what">크롬으로 이 페이지가 다시 열리면 성공</p>
+  <div class="chk"><label><input type="checkbox"> 열림</label><label><input type="checkbox"> 반응 없음</label><label><input type="checkbox"> 오류</label><label><input type="checkbox"> 다른 앱이 열림</label></div>
+</section>
+
 <section>
   <h2>⑤ 환경 정보</h2>
   <p class="what">아래 UA 를 길게 눌러 복사하거나 화면째 캡처하십시오.</p>
@@ -133,6 +149,9 @@
   document.getElementById("b7").onclick = function () {
     dl("probe-alarms.ics", build("probe-7", "[시험] 알림 2개 확인", "20270125", "20270126", null, ["-P6DT15H", "-PT15H"]));
   };
+  // 8: 링크 href 만 채움. 자동 이동 없음(사용자가 누를 때만).
+  document.getElementById("l8a").href = "kakaotalk://web/openExternal?url=" + encodeURIComponent(location.href);
+  document.getElementById("l8b").href = "intent://" + location.host + location.pathname + location.search + "#Intent;scheme=https;package=com.android.chrome;end";
   var ua = navigator.userAgent;
   document.getElementById("ua").value = ua;
   var hit = /NAVER|KAKAOTALK|Instagram|FBAN|FBAV|\bLine\/|DaumApps|; wv\)/.test(ua);
